@@ -36,7 +36,6 @@ export const registration = async (data: TRegisterFormData) => {
       email,
       password,
       redirect: false,
-      
     });
   } catch (e) {
     throw e;
