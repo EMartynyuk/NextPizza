@@ -2,7 +2,7 @@ import GitHub from "next-auth/providers/github";
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma/prisma";
-import { compare } from "bcryptjs";
+import { compareSync } from "bcrypt-edge";
 
 export default {
   providers: [
@@ -35,7 +35,7 @@ export default {
           return null;
         }
 
-        const isPasswordCorrect = await compare(
+        const isPasswordCorrect = compareSync(
           String(password),
           String(findUser.password)
         );

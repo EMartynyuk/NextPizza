@@ -3,7 +3,7 @@
 import { TRegisterFormData } from "@/components/shared/modals/auth/schemas";
 import { signIn } from "@/lib/auth.js/auth";
 import { prisma } from "@/lib/prisma/prisma";
-import { hash } from "bcryptjs";
+import { hashSync } from "bcrypt-edge";
 
 export const login = async () => {};
 
@@ -22,7 +22,7 @@ export const registration = async (data: TRegisterFormData) => {
       throw new Error("Пользователь с такой почтой уже существует");
     }
 
-    const hashedPassword = await hash(password, 10);
+    const hashedPassword = hashSync(password, 10);
 
     await prisma.user.create({
       data: {

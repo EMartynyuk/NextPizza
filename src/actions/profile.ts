@@ -3,7 +3,7 @@
 import { TRegisterFormData } from "@/components/shared/modals/auth/schemas";
 import { auth } from "@/lib/auth.js/auth";
 import { prisma } from "@/lib/prisma/prisma";
-import { hash } from "bcryptjs";
+import { hashSync } from "bcrypt-edge";
 
 export const updateProfile = async (data: TRegisterFormData) => {
   try {
@@ -21,7 +21,7 @@ export const updateProfile = async (data: TRegisterFormData) => {
       },
     });
 
-    const hashedPassword = await hash(data?.password, 10);
+    const hashedPassword = hashSync(data?.password, 10);
 
     await prisma.user.update({
       where: {
