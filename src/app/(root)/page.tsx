@@ -13,7 +13,7 @@ export default async function Home({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const params = await searchParams;
-  const categories = await findPizzas({ query: undefined });
+  const categories = await findPizzas(params);
 
   const categoriesTopbar = categories.filter(
     (category) => category.products.length > 0
