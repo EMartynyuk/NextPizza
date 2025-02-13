@@ -1,19 +1,21 @@
 import {
   Container,
-  Filters,
+  // Filters,
   Title,
   Topbar,
   ProductsGroupList,
 } from "@/components/shared";
 import { findPizzas } from "@/utils/server/find-pizzas";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const params = await searchParams;
-  const categories = await findPizzas(params);
+export default async function Home() {
+// export default async function Home({
+//   searchParams,
+// }: {
+//   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+// }) {
+  // const params = await searchParams;
+  // const categories = await findPizzas(params);
+  const categories = await findPizzas({ query: undefined });
 
   const categoriesTopbar = categories.filter(
     (category) => category.products.length > 0
@@ -28,7 +30,7 @@ export default async function Home({
       <Container className="mt-10 pb-14">
         <div className="flex gap-[60px]">
           <div className="w-[250px]">
-            <Filters />
+            {/* <Filters /> */}
           </div>
           <div className="flex-1">
             <div className="flex flex-col gap-16">
