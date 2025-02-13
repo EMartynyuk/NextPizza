@@ -21,7 +21,7 @@ export const createPayment = async (details: Ipayment) => {
     },
     confirmation: {
       type: "redirect",
-      return_url: "http://localhost:3000/",
+      return_url: process.env.YMONEY_REDIRECT,
     },
   };
 

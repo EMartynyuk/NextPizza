@@ -102,6 +102,10 @@ export async function createOrder(data: TCheckoutForm, finishAmount: string) {
       url: paymentURL,
     };
   } catch (error) {
-    console.log(error);
+    console.error("[Server action - checkout] ", error);
+
+    if (error instanceof Error)
+      return { success: false, message: error.message };
+    return { success: false, message: "Что-то пошло не так" };
   }
 }

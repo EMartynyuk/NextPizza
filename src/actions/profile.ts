@@ -34,7 +34,10 @@ export const updateProfile = async (data: TRegisterFormData) => {
       },
     });
   } catch (error) {
-    console.log("[UPDATE_PROFILE] - Ошибка", error);
-    throw error;
+    console.error("[Server action - profile] ", error);
+
+    if (error instanceof Error)
+      return { success: false, message: error.message };
+    return { success: false, message: "Что-то пошло не так" };
   }
 };

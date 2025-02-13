@@ -5,7 +5,13 @@ import toast from "react-hot-toast";
 
 export const useRegister = () => {
   const { mutate, isPending } = useMutation({
-    mutationFn: async (data: TRegisterFormData) => await registration(data),
+    mutationFn: async (data: TRegisterFormData) => {
+      const res = await registration(data);
+      if (!res?.success) {
+        throw new Error(res?.message);
+      }
+      return res;
+    },
     onSuccess: () => {
       toast.success("Вы успешно зарегистрировались");
       setTimeout(() => location.reload(), 1000);

@@ -38,6 +38,10 @@ export const registration = async (data: TRegisterFormData) => {
       redirect: false,
     });
   } catch (e) {
-    throw e;
+    console.error("[Server Action - auth] ", e);
+
+    if (e instanceof Error) return { success: false, message: e.message };
+
+    return { success: false, message: "Произошла ошибка, попробуйте позже." };
   }
 };
