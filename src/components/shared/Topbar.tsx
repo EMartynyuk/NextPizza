@@ -1,5 +1,5 @@
 import { cn } from "@/utils/utils";
-import { Container, Categories, SortPopup } from "./";
+import { Container, Categories } from "./";
 import { Category } from "@prisma/client";
 
 interface ITopbar {
@@ -17,7 +17,7 @@ export const Topbar = ({ className, categoriesTopbar }: ITopbar) => {
     >
       <Container className="flex items-center justify-between ">
         <Categories categoriesTopbar={categoriesTopbar} />
-        <SortPopup />
+        {/* <SortPopup /> */}
       </Container>
     </div>
   );

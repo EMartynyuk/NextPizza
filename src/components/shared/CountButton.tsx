@@ -18,7 +18,7 @@ export const CountButton: React.FC<CountButtonProps> = ({
   size = "sm",
   id,
 }) => {
-  const { changeQuantity } = useChangeQuantity(id);
+  const { changeQuantity, isPending } = useChangeQuantity(id);
 
   return (
     <div
@@ -29,7 +29,7 @@ export const CountButton: React.FC<CountButtonProps> = ({
     >
       <CountIconButton
         onClick={() => changeQuantity("minus")}
-        disabled={value === 1}
+        disabled={value === 1 || isPending}
         size={size}
         type="minus"
       />
@@ -37,6 +37,7 @@ export const CountButton: React.FC<CountButtonProps> = ({
       <b className={size === "sm" ? "text-sm" : "text-md"}>{value}</b>
 
       <CountIconButton
+        disabled={isPending}
         onClick={() => changeQuantity("plus")}
         size={size}
         type="plus"

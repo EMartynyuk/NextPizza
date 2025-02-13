@@ -91,14 +91,22 @@ export async function createOrder(data: TCheckoutForm, finishAmount: string) {
     const paymentURL = createPaymentY.confirmation.confirmation_url;
 
     // --- Отправка письма ---
-    await createOrderMail({
-      orderId: String(order.id),
-      totalAmount: order.totalAmount,
-      paymentUrl: paymentURL,
-      email: data.email,
-    });
+    try {
+      await createOrderMail({
+        orderId: String(order.id),
+        totalAmount: order.totalAmount,
+        paymentUrl: paymentURL,
+        email: data.email,
+      });
+    } catch (error) {
+      console.error(
+        "[Server action - checkout] - Не удалось отправить письмо",
+        error
+      );
+    }
 
     return {
+      success: true,
       url: paymentURL,
     };
   } catch (error) {
