@@ -10,7 +10,6 @@ export const useUpdateProfile = () => {
       if (!res?.success) {
         throw new Error(res?.message);
       }
-      return res;
     },
     onSuccess: () => {
       toast.success("Профиль обновлен");

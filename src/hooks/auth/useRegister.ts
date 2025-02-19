@@ -7,10 +7,10 @@ export const useRegister = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: TRegisterFormData) => {
       const res = await registration(data);
+      
       if (!res?.success) {
         throw new Error(res?.message);
       }
-      return res;
     },
     onSuccess: () => {
       toast.success("Вы успешно зарегистрировались");

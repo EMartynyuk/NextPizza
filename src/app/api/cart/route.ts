@@ -37,7 +37,6 @@ export async function GET(req: NextRequest) {
       },
     });
 
-
     if (!userCart) {
       console.log("[GET_CART] - Данный токен отсутствует в базе данных");
       return NextResponse.json({

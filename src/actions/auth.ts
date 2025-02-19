@@ -37,6 +37,8 @@ export const registration = async (data: TRegisterFormData) => {
       password,
       redirect: false,
     });
+
+    return { success: true };
   } catch (e) {
     console.error("[Server Action - auth] ", e);
 

@@ -33,6 +33,8 @@ export const updateProfile = async (data: TRegisterFormData) => {
         password: data?.password ? hashedPassword : findUser?.password,
       },
     });
+
+    return { success: true };
   } catch (error) {
     console.error("[Server action - profile] ", error);
 
