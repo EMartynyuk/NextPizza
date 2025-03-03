@@ -8,6 +8,6 @@ interface IContainer {
 
 export const Container = ({ children, className }: IContainer) => {
   return (
-    <div className={cn("mx-auto max-w-[1280px]", className)}>{children}</div>
+    <div className={cn("mx-auto max-w-[1280px] px-[10px]", className)}>{children}</div>
   );
 };

@@ -3,6 +3,7 @@
 import { cn } from "@/utils/utils";
 import { CountIconButton } from ".";
 import { useChangeQuantity } from "@/hooks/cart/useChangeQuantity";
+import NumberFlow from "@number-flow/react";
 
 export interface CountButtonProps {
   value?: number;
@@ -34,7 +35,12 @@ export const CountButton: React.FC<CountButtonProps> = ({
         type="minus"
       />
 
-      <b className={size === "sm" ? "text-sm" : "text-md"}>{value}</b>
+      <NumberFlow
+        value={value}
+        className={cn("font-bold", size === "sm" ? "text-sm" : "text-md")}
+      />
+
+      {/* <b className={size === "sm" ? "text-sm" : "text-md"}>{value}</b> */}
 
       <CountIconButton
         disabled={isPending}

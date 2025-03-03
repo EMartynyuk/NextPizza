@@ -19,6 +19,7 @@ import { cn } from "@/utils/utils";
 import { Title } from ".";
 import Image from "next/image";
 import { PizzaSize, PizzaType } from "@/constants/pizza";
+import NumberFlow from "@number-flow/react";
 
 interface ICartDrawer {
   children: ReactNode;
@@ -75,9 +76,11 @@ export const CartDrawer = ({ children }: ICartDrawer) => {
                       <div className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2" />
                     </span>
 
-                    <span className="font-bold text-lg">
-                      {data?.totalCartPrice} ₽
-                    </span>
+                    <NumberFlow
+                      value={data?.totalCartPrice}
+                      className="font-bold text-lg"
+                      suffix=" ₽"
+                    />
                   </div>
 
                   <Link href="/checkout">

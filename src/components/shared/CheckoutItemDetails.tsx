@@ -1,4 +1,5 @@
 import { cn } from "@/utils/utils";
+import NumberFlow from "@number-flow/react";
 
 interface Props {
   title?: React.ReactNode;

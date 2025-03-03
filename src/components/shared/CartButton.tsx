@@ -5,6 +5,7 @@ import { Button } from "../ui";
 import { CartDrawer } from "./";
 import { cn } from "@/utils/utils";
 import { useGetCart } from "@/hooks/cart/useGetCart";
+import NumberFlow from "@number-flow/react";
 
 export const CartButton = () => {
   const { data, isLoading } = useGetCart();
@@ -15,11 +16,15 @@ export const CartButton = () => {
         className={cn("group relative", { "w-[105px]": isLoading })}
         loading={isLoading}
       >
-        <b>{data?.totalCartPrice} ₽</b>
+        <NumberFlow
+          value={data?.totalCartPrice}
+          className="font-bold"
+          suffix=" ₽"
+        />
         <span className="h-full w-[1px] bg-white/30 mx-3" />
         <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
           <ShoppingCart size={16} className="relative" strokeWidth={2} />
-          <b>{data?.items.length}</b>
+          <NumberFlow value={data?.items.length} className="font-bold" />
         </div>
         <ArrowRight
           size={20}

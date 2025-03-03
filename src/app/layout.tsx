@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 import { Provider } from "@/components/shared/Provider";
+import { NotPC } from "@/components/shared";
 // import { Test } from "@/test";
 // import { Out } from "@/out";
 
@@ -24,8 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={nunito.className}>
+      <body className={`body ${nunito.className}`}>
         <Provider>
+          <NotPC />
           {children}
           {/* <Test /> */}
           {/* <Out /> */}

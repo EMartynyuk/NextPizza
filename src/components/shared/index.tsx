@@ -29,6 +29,8 @@ export { CheckoutItem } from "./CheckoutItem";
 export { InfoBlock } from "./InfoBlock";
 export { ProfileForm } from "./ProfileForm";
 export { Loader } from "./Loader";
+export { NotPC } from "./NotPC";
+export { Provider } from "./Provider";
 
 // Modals
 export { ChooseProductModal } from "./modals/ChooseProductModal";
