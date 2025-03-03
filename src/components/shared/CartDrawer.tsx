@@ -77,7 +77,7 @@ export const CartDrawer = ({ children }: ICartDrawer) => {
                     </span>
 
                     <NumberFlow
-                      value={data?.totalCartPrice}
+                      value={data?.totalCartPrice!}
                       className="font-bold text-lg"
                       suffix=" ₽"
                     />

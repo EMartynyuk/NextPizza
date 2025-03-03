@@ -19,6 +19,7 @@ export default [
   {
     rules: {
       "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-non-null-asserted-optional-chain": "off",
     },
   },
 ];

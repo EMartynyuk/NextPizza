@@ -17,14 +17,14 @@ export const CartButton = () => {
         loading={isLoading}
       >
         <NumberFlow
-          value={data?.totalCartPrice}
+          value={data?.totalCartPrice!}
           className="font-bold"
           suffix=" ₽"
         />
         <span className="h-full w-[1px] bg-white/30 mx-3" />
         <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
           <ShoppingCart size={16} className="relative" strokeWidth={2} />
-          <NumberFlow value={data?.items.length} className="font-bold" />
+          <NumberFlow value={data?.items.length!} className="font-bold" />
         </div>
         <ArrowRight
           size={20}
